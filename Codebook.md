@@ -2,7 +2,7 @@
 
 ## Identifiers
 
-* `Subjects`: The ID of the test subject.
+* `Subjects`: The ID of the test subject from one to thirty.
 * `ActivityLevel`: Activity performed when the measurements were taken.
 
 ## Activity Levels
