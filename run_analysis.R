@@ -39,8 +39,8 @@ new.names <- gsub('[-()]', '', new.names)
 names(df) <- c(new.names, "ActivityLevel", "Subject")
 
 ## Turn activities and subjects into factors.
-df$ActivityLevels <- as.factor(df$ActivityLevel)
-df$Subjects <- as.factor(df$Subject)
+df$ActivityLevel <- as.factor(df$ActivityLevel)
+df$Subject <- as.factor(df$Subject)
 
 ## Creates a second, independent tidy data set with the average of each 
 ## variable for each activity and each subject.
