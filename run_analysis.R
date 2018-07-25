@@ -36,13 +36,14 @@ new.names = gsub('-[Mm]ean*', 'Mean', new.names)
 new.names = gsub('-[Ss]td*', 'Std', new.names)
 new.names <- gsub('[-()]', '', new.names)
 
-names(df) <- c(new.names, "ActivityLevels", "Subjects")
+names(df) <- c(new.names, "ActivityLevel", "Subject")
 
 ## Turn activities and subjects into factors.
-df$ActivityLevels <- as.factor(df$ActivityLevels)
-df$Subjects <- as.factor(df$Subjects)
+df$ActivityLevels <- as.factor(df$ActivityLevel)
+df$Subjects <- as.factor(df$Subject)
 
 ## Creates a second, independent tidy data set with the average of each 
 ## variable for each activity and each subject.
-df.melted <- melt(df, id = c("ActivityLevels", "Subjects"))
-df.tiny <- cast(df.melted, Subjects + ActivityLevels ~ variable, mean)
+df.melted <- melt(df, id = c("ActivityLevel", "Subject"))
+df.tiny <- cast(df.melted, Subject + ActivityLevel ~ variable, mean)
+write.table(df.tiny, "tiny_dataset.txt", row.name=FALSE)
